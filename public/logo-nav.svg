@@ -1,0 +1,24 @@
+<svg width="200" height="60" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="#000000"/>
+  
+  <!-- Dumbbell Icon -->
+  <g transform="translate(512, 256)">
+    <!-- Left weight -->
+    <rect x="-230" y="-51" width="38" height="102" rx="10" fill="#FFFFFF"/>
+    <rect x="-205" y="-64" width="51" height="128" rx="13" fill="#FFFFFF"/>
+    
+    <!-- Bar -->
+    <rect x="-154" y="-13" width="308" height="26" rx="13" fill="#FFFFFF"/>
+    
+    <!-- Right weight -->
+    <rect x="154" y="-64" width="51" height="128" rx="13" fill="#FFFFFF"/>
+    <rect x="192" y="-51" width="38" height="102" rx="10" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Text: STUDIO S-FIT -->
+  <text x="512" y="538" font-family="Arial, sans-serif" font-size="102" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="10">STUDIO S-FIT</text>
+  
+  <!-- Text: PERSONAL TRAINING -->
+  <text x="512" y="640" font-family="Arial, sans-serif" font-size="54" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="15">PERSONAL TRAINING</text>
+</svg>
