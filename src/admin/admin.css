@@ -781,9 +781,9 @@ body.no-scroll {
   align-items: center;
   gap: 8px;
 }
-.hello-icon {
-  color: var(--accent);
-  font-size: 22px;
+.hello-emoji {
+  font-size: 24px;
+  line-height: 1;
 }
 
 .upnext {

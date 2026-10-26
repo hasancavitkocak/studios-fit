@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LuHand, LuCalendarCheck, LuCalendarRange, LuTrophy, LuUsers, LuSunrise, LuArrowRight, LuPhone, LuBellRing } from 'react-icons/lu'
+import { LuCalendarCheck, LuCalendarRange, LuTrophy, LuUsers, LuSunrise, LuArrowRight, LuPhone, LuBellRing } from 'react-icons/lu'
 import { supabase, errorText } from '../supabase'
 import { useAdmin } from '../context'
 import { AppointmentCard, Empty, Spinner, TrainerChips } from '../components/ui'
@@ -7,6 +7,9 @@ import {
   addDays, startOfWeek, startOfMonth, startOfDay, sameDay, fmtLong, fmtTime, fmtWeekday,
   relativeFromNow, greeting, firstName, reminderText, waLink,
 } from '../utils'
+
+// Selamlamadaki emoji branşa göre: PT → ağırlık, Pilates → pilates duruşu, branşsız → el sallama
+const GREETING_EMOJI = { gym: '🏋️', pilates: '🧘‍♀️' }
 
 export default function Dashboard() {
   const { me, isAdmin, staff, staffById, clientsById, clients, version, open, toast, goTo } = useAdmin()
@@ -77,7 +80,7 @@ export default function Dashboard() {
         <div>
           <span className="eyebrow">{fmtLong(today)}</span>
           <h2>
-            {greeting()}, {firstName(me.full_name)} <LuHand className="hello-icon" />
+            {greeting()}, {firstName(me.full_name)} <span className="hello-emoji" aria-hidden="true">{GREETING_EMOJI[me.specialty] || '👋'}</span>
           </h2>
         </div>
       </section>
