@@ -21,23 +21,9 @@ createRoot(document.getElementById('root')).render(
 )
 
 // Yönetim paneli "Ana ekrana ekle" ile ayrı bir uygulama gibi açılsın.
+// Viewport ve iOS etiketleri ilk çizimden önce index.html'deki satır içi script ile eklenir.
 function setupAdminPwa() {
   document.title = 'S-Fit Yönetim'
-  const head = document.head
-  const add = (tag, attrs) => {
-    const el = document.createElement(tag)
-    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v))
-    head.appendChild(el)
-  }
-
-  add('link', { rel: 'manifest', href: '/yonetici.webmanifest' })
-  add('link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png' })
-  add('meta', { name: 'theme-color', content: '#09090b' })
-  add('meta', { name: 'apple-mobile-web-app-capable', content: 'yes' })
-  add('meta', { name: 'mobile-web-app-capable', content: 'yes' })
-  // Durum çubuğu düz siyah; sayfa onun altından başlar (çift boşluk oluşmasın diye viewport-fit=cover kullanılmıyor)
-  add('meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' })
-  add('meta', { name: 'apple-mobile-web-app-title', content: 'S-Fit' })
 
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     navigator.serviceWorker.register('/sw.js', { scope: '/yonetici' }).catch(() => {})
