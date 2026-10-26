@@ -30,15 +30,13 @@ function setupAdminPwa() {
     head.appendChild(el)
   }
 
-  document
-    .querySelector('meta[name="viewport"]')
-    ?.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover')
   add('link', { rel: 'manifest', href: '/yonetici.webmanifest' })
   add('link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon.png' })
   add('meta', { name: 'theme-color', content: '#09090b' })
   add('meta', { name: 'apple-mobile-web-app-capable', content: 'yes' })
   add('meta', { name: 'mobile-web-app-capable', content: 'yes' })
-  add('meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' })
+  // Durum çubuğu düz siyah; sayfa onun altından başlar (çift boşluk oluşmasın diye viewport-fit=cover kullanılmıyor)
+  add('meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' })
   add('meta', { name: 'apple-mobile-web-app-title', content: 'S-Fit' })
 
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
