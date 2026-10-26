@@ -21,6 +21,7 @@
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --tabbar-h: 64px;
+  --page-max: none; /* sayfalar tam genişlik */
 
   min-height: 100vh;
   min-height: 100dvh;
@@ -402,7 +403,7 @@ body.no-scroll {
 
 .content {
   padding: 16px 16px calc(var(--tabbar-h) + var(--safe-bottom) + 96px);
-  max-width: 1180px;
+  max-width: var(--page-max);
   margin: 0 auto;
   animation: fade-up 0.25s ease;
 }
@@ -550,7 +551,10 @@ body.no-scroll {
   .topbar-avatar {
     display: none !important;
   }
+  /* Başlık çubuğu içerikle aynı genişlikte ve hizada dursun */
   .topbar {
+    max-width: var(--page-max);
+    margin: 0 auto;
     padding: 22px 32px 18px;
     background: transparent;
     backdrop-filter: none;
@@ -1999,4 +2003,28 @@ body.no-scroll {
 .adm .link-muted {
   color: var(--muted);
   font-weight: 500;
+}
+
+/* ─── Masaüstü genişlik ayarları ─────────────────── */
+
+@media (min-width: 960px) {
+  /* Sayfa üstündeki Aktif/Arşiv gibi seçiciler tüm satırı kaplamasın */
+  .content > .stack > .segmented {
+    max-width: 360px;
+  }
+  .toolbar .search {
+    max-width: 520px;
+  }
+  .toolbar > .btn {
+    margin-left: auto;
+  }
+  .week {
+    gap: 10px;
+  }
+  .adm .day {
+    padding: 12px 0 10px;
+  }
+  .upnext-name {
+    font-size: 30px;
+  }
 }
