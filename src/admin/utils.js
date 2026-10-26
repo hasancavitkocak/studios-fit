@@ -119,16 +119,18 @@ export function displayLogin(email = '') {
   return email.endsWith(LOGIN_DOMAIN) ? email.slice(0, -LOGIN_DOMAIN.length) : email
 }
 
+// Veritabanındaki değer (gym/pilates) sabit; ekranda görünen adlar buradan gelir.
+// label: branş seçimi · title: rol etiketi · short: dar listeler
 export const SPECIALTIES = {
-  gym: 'Gym',
-  pilates: 'Pilates',
+  gym: { label: 'Personal Training', title: 'Personal Trainer', short: 'PT' },
+  pilates: { label: 'Pilates', title: 'Pilates Eğitmeni', short: 'Pilates' },
 }
 
 // Branşı olan herkes eğitmendir; yöneticiler de branş seçerek eğitmen olabilir.
 export const isTrainer = (p) => p.role === 'trainer' || Boolean(p.specialty)
 
 export function roleLabel(p) {
-  const trainer = p.specialty ? `${SPECIALTIES[p.specialty]} Eğitmeni` : 'Eğitmen'
+  const trainer = SPECIALTIES[p.specialty]?.title || 'Eğitmen'
   if (p.role !== 'admin') return trainer
   return p.specialty ? `${trainer} · Yönetici` : 'Yönetici'
 }

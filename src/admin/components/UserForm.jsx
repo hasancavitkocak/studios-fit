@@ -131,7 +131,7 @@ export default function UserForm({ user }) {
         <Field label="Branş" hint={form.role === 'admin' ? 'Branş seçilirse yönetici aynı zamanda eğitmen olarak randevu alır.' : null}>
           <Segmented
             options={[
-              ...Object.entries(SPECIALTIES).map(([value, label]) => ({ value, label })),
+              ...Object.entries(SPECIALTIES).map(([value, s]) => ({ value, label: s.label })),
               ...(form.role === 'admin' ? [{ value: 'none', label: 'Yok' }] : []),
             ]}
             value={form.role === 'trainer' && form.specialty === 'none' ? 'gym' : form.specialty}

@@ -157,7 +157,7 @@ export default function AppointmentForm({ appt, date, clientId }) {
               {trainers.map((t) => (
                 <option key={t.id} value={t.id}>
                   {t.full_name}
-                  {t.specialty ? ` · ${SPECIALTIES[t.specialty]}` : ''}
+                  {t.specialty ? ` · ${SPECIALTIES[t.specialty].short}` : ''}
                 </option>
               ))}
             </select>

@@ -705,7 +705,9 @@ body.no-scroll {
 }
 .adm .segmented button {
   flex: 1;
-  height: 36px;
+  min-height: 36px;
+  padding: 4px 6px;
+  line-height: 1.2;
   border-radius: 10px;
   font-size: 13.5px;
   font-weight: 500;
